@@ -35,6 +35,7 @@ function readingFromConsole(analyze) {
     inputData = line.trim();
     switch (inputData) {
       case "close":
+        console.clear();
         console.log("closing input stream");
         rl.close();
         break;
@@ -65,7 +66,6 @@ function analyzeData() {
       if (inputData === search[i].name) {
         index = i;
         search[index].function(saveDataToFile);
-        console.log("lol");
       }
     }
   } else {
@@ -84,11 +84,9 @@ function getInformation(saveFunction) {
                 console.log(i);
                 console.log(strDataParsed[i]);
                 saveFunction(search[index].name+nextData,JSON.stringify(strDataParsed[i]));
-
-               
             }
         }
-        console.log(`Type correct value for: ${search[index].name}`);
+        console.log(`Type value for: ${search[index].name}`);
     }
 }
 function httpsGetRequest(information, saveFunction) {
@@ -109,8 +107,6 @@ function httpsGetRequest(information, saveFunction) {
       });
     })
     .end();
-
-  //
 }
 function saveDataToFile(filename, content) {
   fs.writeFile(filename, content, (err) => {
