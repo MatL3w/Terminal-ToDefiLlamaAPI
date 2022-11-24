@@ -45,7 +45,7 @@ function readingFromConsole(analyze) {
             reset();
             break;
       default:
-        analyze();
+        analyze(); ///ANALYZE
         rl.prompt();
         break;
     }
